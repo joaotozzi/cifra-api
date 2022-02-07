@@ -32,6 +32,7 @@ import br.com.joaotozzi.cifraapi.repository.CifraRepository;
 import br.com.joaotozzi.cifraapi.repository.LinhaRepository;
 import br.com.joaotozzi.cifraapi.repository.SecaoRepository;
 import br.com.joaotozzi.cifraapi.utils.CifraConversor;
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/cifras")
@@ -47,12 +48,14 @@ public class CifraController {
 	private LinhaRepository linhaRepository;
 	
 	@GetMapping
+	@Operation(summary = "Listar as cifras")
 	public List<CifraDTO> listar (){
 		List<Cifra> cifras = cifraRepository.findAll();
 		return CifraConversor.converterCifrasParaCifrasDTO(cifras);
 	}
 	
 	@GetMapping("/{id}")
+	@Operation(summary = "Consultar uma cifra pelo id")
 	public ResponseEntity<CifraDetalhadaDTO> consultarCifra (@PathVariable Long id){
 		Optional<Cifra> optional = cifraRepository.findById(id);
 		if (optional.isPresent()) {
@@ -63,6 +66,7 @@ public class CifraController {
 	
 	@PostMapping
 	@Transactional
+	@Operation(summary = "Cadastrar uma nova cifra")
 	public ResponseEntity<Void> cadastrar(@RequestBody @Valid CadastroCifraForm cifraForm,
 			UriComponentsBuilder uriBuilder) {
 
@@ -88,6 +92,7 @@ public class CifraController {
 	
 	@PutMapping
 	@Transactional
+	@Operation(summary = "Atualizar uma cifra existente")
 	public void atualizarCifra(@RequestBody CifraForm cifraForm) {
 		Optional<Cifra> optional = cifraRepository.findById(cifraForm.getId());
 		if (optional.isPresent()) {
@@ -133,6 +138,7 @@ public class CifraController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
+	@Operation(summary = "Apagar uma cifra")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
 		Optional<Cifra> optional = cifraRepository.findById(id);
 		if (optional.isPresent()) {
