@@ -7,13 +7,11 @@ import br.com.joaotozzi.cifraapi.model.Linha;
 
 public class LinhaDTO {
 	private int posicao;
-	private String acordes;
-	private String texto;
+	private String conteudo;
 
 	public LinhaDTO(Linha linha) {
 		this.posicao = linha.getPosicao();
-		this.acordes = linha.getAcordes();
-		this.texto = linha.getTexto();
+		this.conteudo = linha.getConteudo();
 	}
 
 	public int getPosicao() {
@@ -24,20 +22,12 @@ public class LinhaDTO {
 		this.posicao = posicao;
 	}
 
-	public String getAcordes() {
-		return acordes;
+	public String getConteudo() {
+		return conteudo;
 	}
 
-	public void setAcordes(String acordes) {
-		this.acordes = acordes;
-	}
-
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
 
 	public static List<LinhaDTO> converter(List<Linha> linhas) {

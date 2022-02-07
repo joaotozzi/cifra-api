@@ -2,27 +2,22 @@ package br.com.joaotozzi.cifraapi.form;
 
 public class LinhaForm {
 	private int posicao;
-	private String acordes;
-	private String texto;
-	
+	private String conteudo;
+
 	public int getPosicao() {
 		return posicao;
 	}
+
 	public void setPosicao(int posicao) {
 		this.posicao = posicao;
 	}
-	public String getAcordes() {
-		return acordes;
+
+	public String getConteudo() {
+		return conteudo;
 	}
-	public void setAcordes(String acordes) {
-		this.acordes = acordes;
+
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
-	public String getTexto() {
-		return texto;
-	}
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-	
-	
+
 }

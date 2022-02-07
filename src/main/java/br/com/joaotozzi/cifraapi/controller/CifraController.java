@@ -34,7 +34,7 @@ import br.com.joaotozzi.cifraapi.repository.SecaoRepository;
 import br.com.joaotozzi.cifraapi.utils.CifraConversor;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/cifras")
 public class CifraController {
 	
 	@Autowired
@@ -81,7 +81,7 @@ public class CifraController {
 			}
 		}	
 
-		URI uri = uriBuilder.path("/musicas/{id}").buildAndExpand(cifra.getId()).toUri();
+		URI uri = uriBuilder.path("/cifras/{id}").buildAndExpand(cifra.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 
 	}
@@ -96,7 +96,6 @@ public class CifraController {
 			Cifra cifra = optional.get();
 			cifra.setTitulo(cifraForm.getTitulo());
 			cifra.setCompositor(cifraForm.getCompositor());
-			cifra.setVersao(cifraForm.getVersao());
 			cifra.setLinkYoutube(cifraForm.getLinkYoutube());
 			cifra.setAndamento(cifraForm.getAndamento());
 			cifra.setTomOriginal(cifraForm.getTomOriginal());

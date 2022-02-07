@@ -20,25 +20,21 @@ public class Linha {
 	@Column(name = "LNH_POSICAO")
 	private int posicao;
 
-	@Column(name = "LNH_ACORDES")
-	private String acordes;
-
-	@Column(name = "LNH_TEXTO")
-	private String texto;
+	@Column(name = "LNH_CONTEUDO")
+	private String conteudo;
 
 	@ManyToOne
 	@JoinColumn(name = "SCS_ID")
 	private Secao secao;
-	
+
 	public Linha(LinhaForm linhaForm, Secao secao) {
 		this.posicao = linhaForm.getPosicao();
-		this.acordes = linhaForm.getAcordes();
-		this.texto = linhaForm.getTexto();
+		this.conteudo = linhaForm.getConteudo();
 		this.secao = secao;
 	}
-	
+
 	public Linha() {
-		
+
 	}
 
 	public long getId() {
@@ -57,20 +53,12 @@ public class Linha {
 		this.posicao = posicao;
 	}
 
-	public String getAcordes() {
-		return acordes;
+	public String getConteudo() {
+		return conteudo;
 	}
 
-	public void setAcordes(String acordes) {
-		this.acordes = acordes;
-	}
-
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
 
 	public Secao getSecao() {

@@ -5,7 +5,6 @@ import java.util.List;
 public class SecaoForm {
 	private int posicao;
 	private String nome;
-	private int numeroDeExecucoes;
 	private String notaDeEnsaio;
 	private List<LinhaForm> linhas;
 
@@ -24,15 +23,7 @@ public class SecaoForm {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public int getNumeroDeExecucoes() {
-		return numeroDeExecucoes;
-	}
-
-	public void setNumeroDeExecucoes(int numeroDeExecucoes) {
-		this.numeroDeExecucoes = numeroDeExecucoes;
-	}
-
+	
 	public String getNotaDeEnsaio() {
 		return notaDeEnsaio;
 	}

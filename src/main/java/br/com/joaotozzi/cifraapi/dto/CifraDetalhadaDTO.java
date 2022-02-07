@@ -7,7 +7,6 @@ public class CifraDetalhadaDTO {
 	private long id;
 	private String titulo;
 	private String compositor;
-	private String versao;
 	private String linkYoutube;
 	private int andamento;
 	private String tomOriginal;
@@ -17,7 +16,6 @@ public class CifraDetalhadaDTO {
 		this.id = cifra.getId();
 		this.titulo = cifra.getTitulo();
 		this.compositor = cifra.getCompositor();
-		this.versao = cifra.getVersao();
 		this.linkYoutube = cifra.getLinkYoutube();
 		this.andamento = cifra.getAndamento();
 		this.tomOriginal = cifra.getTomOriginal();
@@ -49,14 +47,6 @@ public class CifraDetalhadaDTO {
 
 	public void setCompositor(String compositor) {
 		this.compositor = compositor;
-	}
-
-	public String getVersao() {
-		return versao;
-	}
-
-	public void setVersao(String versao) {
-		this.versao = versao;
 	}
 
 	public String getLinkYoutube() {

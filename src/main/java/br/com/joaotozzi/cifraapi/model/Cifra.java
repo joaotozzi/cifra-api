@@ -25,9 +25,6 @@ public class Cifra {
 	@Column(name = "CFR_COMPOSITOR")
 	private String compositor;
 
-	@Column(name = "CFR_VERSAO")
-	private String versao;
-
 	@Column(name = "CFR_LINK_YOUTUBE")
 	private String linkYoutube;
 
@@ -44,7 +41,6 @@ public class Cifra {
 	public Cifra(CadastroCifraForm cifraForm) {
 		this.titulo = cifraForm.getTitulo();
 		this.compositor = cifraForm.getCompositor();
-		this.versao = cifraForm.getVersao();
 		this.linkYoutube = cifraForm.getLinkYoutube();
 		this.andamento = cifraForm.getAndamento();
 		this.tomOriginal = cifraForm.getTomOriginal();
@@ -76,14 +72,6 @@ public class Cifra {
 
 	public void setCompositor(String compositor) {
 		this.compositor = compositor;
-	}
-
-	public String getVersao() {
-		return versao;
-	}
-
-	public void setVersao(String versao) {
-		this.versao = versao;
 	}
 
 	public String getLinkYoutube() {

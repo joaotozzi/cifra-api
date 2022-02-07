@@ -5,7 +5,6 @@ import java.util.List;
 public class CadastroCifraForm {
 	private String titulo;
 	private String compositor;
-	private String versao;
 	private String linkYoutube;
 	private int andamento;
 	private String tomOriginal;
@@ -25,14 +24,6 @@ public class CadastroCifraForm {
 
 	public void setCompositor(String compositor) {
 		this.compositor = compositor;
-	}
-
-	public String getVersao() {
-		return versao;
-	}
-
-	public void setVersao(String versao) {
-		this.versao = versao;
 	}
 
 	public String getLinkYoutube() {

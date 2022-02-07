@@ -8,14 +8,12 @@ import br.com.joaotozzi.cifraapi.model.Secao;
 public class SecaoDTO {
 	private int posicao;
 	private String nome;
-	private int numeroDeExecucoes;
 	private String notaDeEnsaio;
 	private List<LinhaDTO> linhas;
 
 	public SecaoDTO(Secao secao) {
 		this.posicao = secao.getPosicao();
 		this.nome = secao.getNome();
-		this.numeroDeExecucoes = secao.getNumeroDeExecucoes();
 		this.notaDeEnsaio = secao.getNotaDeEnsaio();
 
 		if (secao.getLinhas() != null) {
@@ -37,14 +35,6 @@ public class SecaoDTO {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public int getNumeroDeExecucoes() {
-		return numeroDeExecucoes;
-	}
-
-	public void setNumeroDeExecucoes(int numeroDeExecucoes) {
-		this.numeroDeExecucoes = numeroDeExecucoes;
 	}
 
 	public String getNotaDeEnsaio() {

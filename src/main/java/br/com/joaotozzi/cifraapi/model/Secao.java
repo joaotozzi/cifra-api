@@ -27,9 +27,6 @@ public class Secao {
 	@Column(name = "SCS_NOME")
 	private String nome;
 
-	@Column(name = "SCS_NUM_EXECUCOES")
-	private int numeroDeExecucoes;
-
 	@Column(name = "SCS_NOTA_ENSAIO")
 	private String notaDeEnsaio;
 
@@ -43,7 +40,6 @@ public class Secao {
 	public Secao(SecaoForm secaoForm, Cifra cifra) {
 		this.posicao = secaoForm.getPosicao();
 		this.nome = secaoForm.getNome();
-		this.numeroDeExecucoes = secaoForm.getNumeroDeExecucoes();
 		this.notaDeEnsaio = secaoForm.getNotaDeEnsaio();
 		this.cifra = cifra;
 	}
@@ -74,14 +70,6 @@ public class Secao {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public int getNumeroDeExecucoes() {
-		return numeroDeExecucoes;
-	}
-
-	public void setNumeroDeExecucoes(int numeroDeExecucoes) {
-		this.numeroDeExecucoes = numeroDeExecucoes;
 	}
 
 	public String getNotaDeEnsaio() {
