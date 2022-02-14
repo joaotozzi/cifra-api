@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -51,9 +52,15 @@ public class CifraController {
 	
 	@GetMapping
 	@Operation(summary = "Listar as cifras")
-	public List<CifraDTO> listar (){
-		List<Cifra> cifras = cifraRepository.findAll();
+	public List<CifraDTO> listar (@RequestParam(required = false) String titulo){
+		if(titulo == null) {
+			List<Cifra> cifras = cifraRepository.findAll();
+			return CifraConversor.converterCifrasParaCifrasDTO(cifras);
+		}
+		
+		List<Cifra> cifras = cifraRepository.findByTituloContainingIgnoreCase(titulo);
 		return CifraConversor.converterCifrasParaCifrasDTO(cifras);
+
 	}
 	
 	@GetMapping("/{id}")
