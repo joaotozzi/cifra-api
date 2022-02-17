@@ -8,12 +8,11 @@ import java.util.regex.Pattern;
 
 public class TransposicaoAcorde {
 
-	private static HashMap<String, List<String>> tabelaDeTransposicao;
+	private static HashMap<String, List<String>> tabelaDeTransposicao = new HashMap<String, List<String>>();
 
 	public static String mudarTom(String acordeOriginal, String tomOriginal, String tomAlvo) {
 
-		if (tabelaDeTransposicao == null) {
-			tabelaDeTransposicao = new HashMap<String, List<String>>();
+		if (tabelaDeTransposicao.isEmpty()){
 			tabelaDeTransposicao.put("C",
 					new ArrayList<String>(List.of("C#", "_C", "Db", "D", "D#", "_D", "Eb", "E", "E#", "Fb", "F", "F#",
 							"_G", "Gb", "G", "G#", "_A", "_G", "Ab", "A", "A#", "_A", "Bb", "B", "B#", "Cb", "C")));
