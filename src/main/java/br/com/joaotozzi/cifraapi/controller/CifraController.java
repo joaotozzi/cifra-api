@@ -34,6 +34,7 @@ import br.com.joaotozzi.cifraapi.repository.CifraRepository;
 import br.com.joaotozzi.cifraapi.repository.LinhaRepository;
 import br.com.joaotozzi.cifraapi.repository.SecaoRepository;
 import br.com.joaotozzi.cifraapi.utils.CifraConversor;
+import br.com.joaotozzi.cifraapi.utils.TransposicaoCifra;
 import io.swagger.v3.oas.annotations.Operation;
 
 @CrossOrigin
@@ -72,6 +73,20 @@ public class CifraController {
 		}
 		return ResponseEntity.notFound().build();
 	}
+	
+	
+	@GetMapping("/{id}/tom/{tom}")
+	@Operation(summary = "Consultar uma cifra em outro tom")
+	public ResponseEntity<CifraDetalhadaDTO> consultarCifraEmOutroTom (@PathVariable Long id, @PathVariable String tom){
+		Optional<Cifra> optional = cifraRepository.findById(id);
+		if (optional.isPresent()) {
+			
+			Cifra cifra =  TransposicaoCifra.mudarTom(optional.get(), tom);
+			return ResponseEntity.ok(new CifraDetalhadaDTO(cifra));
+		}
+		return ResponseEntity.notFound().build();
+	}
+	
 	
 	@PostMapping
 	@Transactional
